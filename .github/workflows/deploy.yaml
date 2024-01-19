@@ -34,4 +34,4 @@ jobs:
       - name: Deploy Infra
         id: provision
         run: |
-          $HOME/.stk/bin/stk deploy infra -e ${{ secrets.environment }} -v ${{ github.sha }} -w
+          $HOME/.stk/bin/stk deploy infra -e ${{ secrets.STK_ENVIRONMENT }} -v ${{ github.sha }} -w
