@@ -8,8 +8,7 @@ on:
 
 jobs:
   stackspot-runtime:
-    name: StackSpot Runtime
-    runs-on: [linux, x64]
+    - name: StackSpot Runtime
     steps:
       - name: Install STK 
         shell: bash
