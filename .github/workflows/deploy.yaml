@@ -31,13 +31,13 @@ jobs:
       - name: Login workspace
         run: |
           $HOME/.stk/bin/stk use workspace ${{ secrets.STK_WORKSPACE }}
+          
+      - name: Checkout
+        uses: actions/checkout@v3
 
       - name: Register infra
         run: |
           $HOME/.stk/bin/stk register infra || true
-
-      - name: Checkout
-        uses: actions/checkout@v3
 
       - name: Deploy Infra
         id: provision
