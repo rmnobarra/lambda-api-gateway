@@ -30,6 +30,7 @@ jobs:
 
       - name: Register infra
         run: |
+          $HOME/.stk/bin/stk user workspace ${{ secrets.STK_WORKSPACE }}
           $HOME/.stk/bin/stk register infra || true
 
       - name: Checkout
