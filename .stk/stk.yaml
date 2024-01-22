@@ -1,0 +1,26 @@
+schema-version: v2
+kind: manifest
+metadata:
+  name: lambda-python-aws
+  description: lambda python aws
+  starter: acme/lambda@1.0.0/lambda-python
+  stack-version-id: 01HMRTBKS4QGQTGQ0Q5MMR1WM3
+  stack: lambda@1.0.0
+spec:
+  type: app
+  plugins:
+    - name: acme/lambda@1.0.0/lambda-python@0.0.1
+      alias: lambda-python-1705935468249
+      plugin-version-id: 01HMRTD7TJF5W1NY4K1H557WVH
+      stack-version-id: 01HMRTBKS4QGQTGQ0Q5MMR1WM3
+      type: app
+      inputs: {}
+      inputs-envs: {}
+      connections:
+        generates: []
+        requires: []
+      links:
+        generates: []
+  global-inputs: {}
+  global-computed-inputs: {}
+  repository: https://github.com/rmnobarra/lambda-api-gateway
