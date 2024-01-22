@@ -1,0 +1,40 @@
+kind: application
+metadata:
+  description: lambda-python-aws
+  name: lambda-python-aws
+schema-version: v1
+spec:
+  applied-plugins:
+  - alias: lambda-python-1705966085922
+    connections:
+      generates: []
+      requires: []
+    inputs: {}
+    inputs-envs: {}
+    name: acme/lambda@1.0.0/lambda-python
+  - alias: lambda-python-1705966099824
+    connections:
+      generates: []
+      requires: []
+    inputs: {}
+    inputs-envs: {}
+    name: acme/lambda@1.0.0/lambda-python
+  - alias: ci-cd-terraform-1705966099833
+    connections:
+      generates: []
+      requires: []
+    inputs: {}
+    inputs-envs: {}
+    name: acme/lambda@1.0.0/ci-cd-terraform
+  - alias: lambda-api-gateway-1705966099840
+    connections:
+      generates: []
+      requires: []
+    inputs:
+      aws_region: us-east-1
+      function_name: lambda-app
+      route_key: hello
+      runtime: python3.8
+    inputs-envs: {}
+    name: acme/lambda@1.0.0/lambda-api-gateway
+  repository: https://github.com/rmnobarra/lambda-api-gateway
