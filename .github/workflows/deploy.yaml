@@ -9,7 +9,7 @@ on:
 jobs:
   stackspot-runtime:
     name: StackSpot Runtime
-    runs-on: [linux, x64]
+    runs-on: [unbuntu-latest]
     steps:
       - name: Install STK
         shell: bash
@@ -32,11 +32,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Register infra
+      - name: Register app
         run: |
           $HOME/.stk/bin/stk register app || true
 
       - name: Deploy App
         id: provision
         run: |
-          $HOME/.stk/bin/stk deploy app -e ${{ secrets.environment }} -v ${{ github.sha }} -w
+          $HOME/.stk/bin/stk deploy app -e ${{ secrets.STK_ENVIRONMENT }} -v ${{ github.sha }} -w
