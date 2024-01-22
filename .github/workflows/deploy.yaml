@@ -31,7 +31,11 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v3
-
+        
+      - name: Login workspace
+        run: |
+          $HOME/.stk/bin/stk use workspace dev
+          
       - name: Register app
         run: |
           $HOME/.stk/bin/stk register app || true
