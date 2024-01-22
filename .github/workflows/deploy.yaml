@@ -9,7 +9,7 @@ on:
 jobs:
   stackspot-runtime:
     name: StackSpot Runtime
-    runs-on: [unbuntu-latest]
+    runs-on: [ubuntu-latest]
     steps:
       - name: Install STK
         shell: bash
