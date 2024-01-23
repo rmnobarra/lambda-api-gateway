@@ -1,0 +1,55 @@
+schema-version: v2
+kind: manifest
+metadata:
+  name: lambda-python-aws
+  description: lambda python aws
+  starter: acme/lambda-python-aws@1.0.0/lambda-python
+  stack-version-id: 01HMVCBZWF6RMKD0YETM4EW0PN
+  stack: lambda-python-aws@1.0.0
+spec:
+  type: app
+  app-id: 01HMVCJR2YY081VGMEGFM5C0RF
+  plugins:
+    - name: acme/lambda-python-aws@1.0.0/lambda-python@0.0.1
+      alias: lambda-python-1706021117587
+      plugin-version-id: 01HMVC7508Y2JEDW27Y06RF3YM
+      stack-version-id: 01HMVCBZWF6RMKD0YETM4EW0PN
+      type: app
+      inputs: {}
+      inputs-envs: {}
+      connections:
+        generates: []
+        requires: []
+      links:
+        generates: []
+    - name: acme/lambda-python-aws@1.0.0/runtimes-workflow@0.0.1
+      alias: runtimes-workflow-1706021144585
+      plugin-version-id: 01HMVC7W809Q8F64FNW4Y42GD5
+      stack-version-id: 01HMVCBZWF6RMKD0YETM4EW0PN
+      type: infra
+      inputs: {}
+      inputs-envs: {}
+      connections:
+        generates: []
+        requires: []
+      links:
+        generates: []
+    - name: acme/lambda-python-aws@1.0.0/lambda-api-gateway@0.0.1
+      alias: lambda-api-gateway-1706021166625
+      plugin-version-id: 01HMVC8B02VWSJN7CMX7ASZSRE
+      stack-version-id: 01HMVCBZWF6RMKD0YETM4EW0PN
+      type: infra
+      inputs:
+        aws_region: us-east-1
+        function_name: lambda-app
+        route_key: hello
+        runtime: python3.8
+      inputs-envs: {}
+      connections:
+        generates: []
+        requires: []
+      links:
+        generates: []
+  global-inputs: {}
+  global-computed-inputs: {}
+  repository: https://github.com/rmnobarra/lambda-api-gateway
