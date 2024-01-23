@@ -1,0 +1,33 @@
+kind: application
+metadata:
+  description: lambda-python-aws
+  name: lambda-python-aws
+schema-version: v1
+spec:
+  applied-plugins:
+  - alias: lambda-python-1706036141985
+    connections:
+      generates: []
+      requires: []
+    inputs: {}
+    inputs-envs: {}
+    name: acme/lambda-python-aws@1.0.0/lambda-python
+  - alias: lambda-api-gateway-1706036149430
+    connections:
+      generates: []
+      requires: []
+    inputs:
+      aws_region: us-east-1
+      function_name: lambda-app
+      route_key: hello
+      runtime: python3.8
+    inputs-envs: {}
+    name: acme/lambda-python-aws@1.0.0/lambda-api-gateway
+  - alias: runtimes-workflow-1706036149448
+    connections:
+      generates: []
+      requires: []
+    inputs: {}
+    inputs-envs: {}
+    name: acme/lambda-python-aws@1.0.0/runtimes-workflow
+  repository: https://github.com/rmnobarra/lambda-api-gateway
