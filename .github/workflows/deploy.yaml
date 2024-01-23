@@ -1,0 +1,46 @@
+name: Stackpot Deployment
+
+on:
+    push:
+        branches:
+        - main
+    workflow_dispatch:
+
+jobs:
+  stackspot-runtimes:
+    name: StackSpot Runtimes
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Install STK 
+        shell: bash
+        run: |
+          curl -O -s https://stk.stackspot.com/installer/linux/stk && \
+          chmod +x ./stk && \
+          ./stk --version
+
+      - name: Upgrade STK
+        shell: bash
+        run: |
+          $HOME/.stk/bin/stk upgrade          
+      - name: Show STK CLI version
+        run: $HOME/.stk/bin/stk --version
+
+      - name: Login StackSpot
+        run: |
+          $HOME/.stk/bin/stk login -id ${{ secrets.STK_CLIENT_ID }} -key ${{ secrets.STK_CLIENT_KEY }} -r ${{ secrets.STK_CLIENT_REALM }}
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Use workspace
+        run: |
+          $HOME/.stk/bin/stk use  workspace ${{ secrets.STK_WORKSPACE }}
+
+      - name: Register app
+        run: |
+          $HOME/.stk/bin/stk register app || true
+
+      - name: Deploy App
+        id: provision
+        run: |
+          $HOME/.stk/bin/stk deploy app -e ${{ secrets.STK_ENVIRONMENT }} -v ${{ github.sha }} -w
