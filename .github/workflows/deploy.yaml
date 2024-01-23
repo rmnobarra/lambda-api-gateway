@@ -32,7 +32,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Deploy App
+      - name: Debug
+        run: |
+          pwd
+          ls -la
+
+      - name: Use workspace
         id: provision
+        run: |
+          $HOME/.stk/bin/stk use workspace ${{ secrets.STK_WORKSPACE }}
+
+      - name: Deploy App
         run: |
           $HOME/.stk/bin/stk deploy app -e ${{ secrets.STK_ENVIRONMENT }} -v ${{ github.sha }} -w
