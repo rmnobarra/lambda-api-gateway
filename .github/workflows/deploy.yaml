@@ -32,6 +32,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: debug
+        run: |
+          pwd
+          ls -la
+          
       - name: Use workspace
         run: |
           $HOME/.stk/bin/stk use workspace ${{ secrets.STK_WORKSPACE }}
