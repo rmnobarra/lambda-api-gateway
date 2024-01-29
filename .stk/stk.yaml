@@ -10,6 +10,18 @@ spec:
   type: app
   app-id: 01HMVY5VBGQKD22TXWG67GMF7C
   plugins:
+    - name: acme/lambda-python-aws@1.0.0/lambda-python@0.0.1
+      alias: lambda-python-1706039619177
+      plugin-version-id: 01HMVC7508Y2JEDW27Y06RF3YM
+      stack-version-id: 01HMVY13HCSYHVGB648HPR3NPD
+      type: app
+      inputs: {}
+      inputs-envs: {}
+      connections:
+        generates: []
+        requires: []
+      links:
+        generates: []
   global-inputs: {}
   global-computed-inputs: {}
   repository: https://github.com/rmnobarra/lambda-api-gateway
