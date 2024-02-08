@@ -22,6 +22,18 @@ spec:
         requires: []
       links:
         generates: []
+    - name: acme/lambda-python-aws@1.0.0/runtimes-workflow@0.0.1
+      alias: runtimes-workflow-1706039624639
+      plugin-version-id: 01HMVGRQSTYYS7XXWXZYE1KP4G
+      stack-version-id: 01HMVY13HCSYHVGB648HPR3NPD
+      type: infra
+      inputs: {}
+      inputs-envs: {}
+      connections:
+        generates: []
+        requires: []
+      links:
+        generates: []
   global-inputs: {}
   global-computed-inputs: {}
   repository: https://github.com/rmnobarra/lambda-api-gateway
