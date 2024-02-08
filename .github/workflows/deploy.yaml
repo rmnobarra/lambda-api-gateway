@@ -36,6 +36,11 @@ jobs:
         run: |
           $HOME/.stk/bin/stk use workspace ${{ secrets.STK_WORKSPACE }}
 
+      - name: pwd
+        run: |
+          pwd
+          ls -la
+          
       - name: Deploy App
         id: provision
         run: |
